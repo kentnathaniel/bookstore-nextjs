@@ -13,7 +13,7 @@ export default function Books({ id, title, author, image, publisher, year }) {
           <Image
             w={24}
             h={24}
-            src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/${image}`}
+            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/${image}`}
             alt={`${id}-${title}`}
           />
           <Text>
