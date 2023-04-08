@@ -38,6 +38,7 @@ const uploadBook = async (req, res) => {
 const handler = nc()
   .use(validateMethod(["POST", "GET"]))
   .use(withUploader("image"))
+  .use(authenticateToken())
   .get(getBooksResponse)
   .post(uploadBook);
 
