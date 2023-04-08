@@ -1,38 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Cara deploy [Vercel + Supabase]
+1. Masuk ke supabase lalu create akunnya (ini yg free dan lumayan mudah untuk integrasinya)
 
-## Getting Started
+2. Create database di Supabase
 
-First, run the development server:
+3. Bikin juga storage bucket di Supabase sama folder uploads di dalamnya. sama bikin policy untuk Update + Select ![image](https://user-images.githubusercontent.com/31380193/230716577-4f8ce8c2-21d6-45b9-b40b-b1968b5266e2.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+3. Push project ke github
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Integrate Github dengan vercel
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+5. Tambahin .env pada vercel, bisa mengacu ke .env.example untuk isi ENV yg perlu ditambahkan!
+Untuk password dan project domain nya supabase bisa mengacu kesini https://app.supabase.com/project/_/settings/database
+[image](https://user-images.githubusercontent.com/31380193/230716659-703c9da5-5303-4f71-8d85-864036207051.png) 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+6. Override build command divercel nya sesuai yg di screenshot (untuk initialize migration) ![image](https://user-images.githubusercontent.com/31380193/230716583-ebf3039c-9189-4ce2-81d9-5c7d4ed6522a.png)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+7. Ditunggu hingga process build selesai dan coba cek pada domain yg diassign Vercel
+![image](https://user-images.githubusercontent.com/31380193/230716757-310d243d-3048-4329-a7e2-6938163c8396.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+8. Untuk build command nya bisa di off in lagi saja overridenya kecuali nanti ada yg mau di migrate lagi tabel baru nya
+![image](https://user-images.githubusercontent.com/31380193/230716802-2916400e-a4b0-49ed-bd00-29a43283d5c5.png)
 
-## Learn More
+Referensi:
+https://supabase.com/docs/guides/database/managing-passwords
 
-To learn more about Next.js, take a look at the following resources:
+https://supabase.com/docs/reference/javascript/v1/storage-from-upload
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+https://github.com/supabase/storage-api/issues/86
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+https://stackoverflow.com/questions/72861584/supabase-bucket-policy-to-insert-file-not-working 
