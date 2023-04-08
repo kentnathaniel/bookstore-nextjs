@@ -23,6 +23,9 @@ Untuk password dan project domain nya supabase bisa mengacu kesini https://app.s
 
 Referensi:
 https://supabase.com/docs/guides/database/managing-passwords
+
 https://supabase.com/docs/reference/javascript/v1/storage-from-upload
+
 https://github.com/supabase/storage-api/issues/86
+
 https://stackoverflow.com/questions/72861584/supabase-bucket-policy-to-insert-file-not-working 
