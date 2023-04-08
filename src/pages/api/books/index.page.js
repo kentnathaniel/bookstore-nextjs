@@ -2,6 +2,7 @@ import { prisma } from "@/services/prisma";
 import nc from "next-connect";
 import validateMethod from "@/middlewares/validateMethod";
 import withUploader from "@/middlewares/uploader";
+import { authenticateToken } from "@/middlewares/authenticate";
 
 export const getBooks = async () => {
   const books = await prisma.book.findMany();
