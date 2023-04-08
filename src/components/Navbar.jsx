@@ -48,7 +48,7 @@ const Navbar = () => {
       </Link>
       <HStack>
         {isLogin && (
-          <Link href="/newbook">
+          <Link href="/books/create">
             <Button colorScheme="blackAlpha">Create New Book</Button>
           </Link>
         )}
