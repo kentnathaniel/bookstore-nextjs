@@ -55,7 +55,7 @@ export default function BookDetails() {
       ) : (
         <Flex my="6">
           <Box w="300px">
-            <Image src={`${book.image}`} alt={book.title} />
+            <Image src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/${book.image}`} alt={book.title} />
           </Box>
           <Box ml="8">
             <Heading as="h1" size="lg">
