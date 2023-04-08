@@ -1,7 +1,7 @@
 import { prisma } from "@/services/prisma";
 import nc from "next-connect";
 import validateMethod from "@/middlewares/validateMethod";
-import withUploader from "@/middlewares/uploader";
+import supabaseUploader from "@/middlewares/supabaseFormUploader";
 
 const getBookById = async (req, res) => {
   try {
@@ -53,7 +53,7 @@ const updateBook = async (req, res) => {
 const handler = nc()
   .use(validateMethod(["GET", "PUT", "DELETE"]))
   .get(getBookById)
-  .use(withUploader("image"))
+  .use(supabaseUploader("image"))
   .delete(deleteBook)
   .put(updateBook);
 

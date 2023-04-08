@@ -2,7 +2,7 @@ import multer from "multer";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./public/uploads/");
+    cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
     const fileName = Date.now() + "-" + file.originalname.toLowerCase().split(" ").join("-");
@@ -18,6 +18,7 @@ const upload = multer({
 export default function withUploader(fieldName) {
   const handler = (req, res, next) => {
     const fn = upload.single(fieldName);
+
     fn(req, res, (err) => {
       if (err instanceof multer.MulterError) {
         return res.status(400).json({ data: null, message: err.message });
